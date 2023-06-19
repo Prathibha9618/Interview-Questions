@@ -1,0 +1,661 @@
+Why String is Immutable ?
+
+string with the same content share the same storage in a string pool to minimize the copy of the same variable.
+this is tosay, once a string is created, it cannot be changed, if any changes it it will lead to creation of new strings.
+
+__________________________________________________________________________________________________________________________________________________________________________
+
+ Exception Heriarchy ?
+
+https://media.geeksforgeeks.org/wp-content/uploads/20220120111809/Group21-660x330.jpg
+
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is Iterator?
+
+A:) In Java, an iterator is an interface defined in the java.util package that provides a way to iterate over the elements of a collection in a sequential manner. 
+hasNext(): returns true if there is at least one more element in the collection, otherwise false.
+next(): returns the next element in the collection.
+remove(): removes the last element returned by the iterator from the collection.
+__________________________________________________________________________________________________________________________________________________________________________
+
+Does set allows null and duplicate values?
+
+A:) In Java, a Set is a collection that does not allow duplicate elements. That means that if you try to add an element to a Set that already exists in the Set, the new element will not be added.
+HashSet and LinkedHashSet both allow null values.
+TreeSet does not allow null values. If you try to add a null value to a TreeSet, it will throw a NullPointerException.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is Map in java?
+
+A:)In Java, a Map is a collection that maps keys to values, where each key can only be associated with a single value. 
+Map does not allow duplicate keys, but it does allow null values.
+
+-> you can have a null value associated with a key in a Map, but you cannot have two keys with the same value. If you try to put a value into a Map using a key that already exists in the Map, the new value will replace the old value associated with that key.
+__________________________________________________________________________________________________________________________________________________________________________
+
+what is a survlet?
+
+A:)  A servlet is a Java program that runs on a web server and handles client requests and responses over the HTTP protocol.
+ Servlets are used to build web applications that can dynamically generate content and respond to user requests.
+
+-> Servlets can handle various types of HTTP requests such as GET, POST, PUT, and DELETE
+_________________________________________________________________________________________________________________________________________________________________________
+
+Call BY Value?
+
+A:)
+
+Call by value means that the value of the argument is copied and passed to the method. 
+This means that any changes made to the parameter within the method are not reflected outside of the method.
+ 
+
+public class Example {
+    public static void main(String[] args) {
+        int x = 5;
+        modifyValue(x);
+        System.out.println(x); // Output: 5
+    }
+
+    public static void modifyValue(int value) {
+        value = 10;
+    }
+}
+
+
+Call by Reference?
+
+A:)
+
+Call by reference means that a reference to the memory location of the argument is passed to the method. 
+
+public class Example {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        modifyArray(arr);
+        System.out.println(Arrays.toString(arr)); // Output: [2, 4, 6]
+    }
+
+    public static void modifyArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] *= 2;
+        }
+    }
+}
+________________________________________________________________________________________________________________________________________________________________________
+
+What are Cookies ?
+
+A:) 
+-> A cookie is a small piece of information that is persisted between the multiple client requests. 
+   A cookie has a name, a single value, and optional attributes.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is Entry in Java?
+ 
+A:)
+->	Entry interface enables you to work with a map entry. The entrySet( ) method declared by the Map interface returns a Set containing the map entries. Each of these 	set elements is a Map. Entry object.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is RowSet ?
+
+A:) 
+
+Rowset Interface is basically an extension of JDBC ResultSet and is part of the java.sql.package
+There are 2 types of RowSet Connected and Dis-Connected.
+
+-> Connected Rowset are those which establish connection and retain until the apllication termiantes.
+
+-> DisConnected rowset perfoms or establishes a connection, executues a query such as retreiveing data from the database and closes the connection.
+
+-> According to the implementation of rowset there are 5 types of implemenatations
+
+ 1. JdbcRowset 
+ 2. Cached Rowset
+ 3. WebRowset 
+ 4. Filetered rowset 
+ 5. Join Rowset
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is Servlet ?
+
+A:) 
+-> A servlet is generally a java-based programme that runs on web server and process client requests and generates dynamic web pages,process and respond to
+HTTP requests.
+
+-> When a client sends a HTTP request to the server, the servelet container recieves the request and pass it to appropriate servlet. 
+-> The servelt then process the request and sends the http response back to the client.
+
+__________________________________________________________________________________________________________________________________________________________________________
+
+How many types of servlets ?
+
+A:) 
+
+-> There are basically 2 types of servelets. HTTP & Generic Type servelets. we can use Constructor to intialise servelet with the help of init() method and 
+descructor method to remove the servelet from the resources using destroy().
+
+-> There are basically two types of servelts based on the interface they implement.
+Generic Survlet : It is a abstract class that implements the Servlet, Servlet-Config. It provides a generic implementation of the servlet interface.
+
+HTTP Servlet : It is a abstract class that extends Generic servlet and provides Http specific functionality. 
+It implements doGet(), doPost(), doPut(), doDelete() and other methods to handle HTTP requests and responses.
+
+-> Both servlets are used to process client  requsts and generate dynamic responses. 
+
+-> HTTP servlets are most commonly used in creating web applications that work with http requests and responses.
+
+-> While Generic servets are more commonly used in creating custom survlets that work with other protocals and data formats.
+
+__________________________________________________________________________________________________________________________________________________________________________
+
+What are the 3 main methods of a servlet class?
+
+-> The init, service and destroy are the life cycle methods of servlet.
+_________________________________________________________________________________________________________________________________________________________________________
+
+-> In method overloading the return type doesnt matters. what matters is only the type of parameters and the no of parameters.
+
+-> ServletConfig is used for sharing init parameters specific to a servlet while ServletContext is for sharing init parameters within any Servlet within a web
+   application.
+__________________________________________________________________________________________________________________________________________________________________________
+
+Difference between Execute and ExecuteUpdate and ExecuteQuery ?
+
+Execute() : This method is used for all types of Sql Statements and it returns a boolean value of TRUE or FALSE. If the method returns "True" it returns a ResultSet object. If False it returns int value.
+
+ExecuteUpdate(): This method is used for execution of DML Statements(Insert,  Update, Delete) which is return int value, that is count of rows affected.
+
+ExecuteQuery(): This method is used for retreiving data from database and this method returns ResultSet Object and that returns the data according to the query.
+__________________________________________________________________________________________________________________________________________________________________________
+
+ What are the life-cycle methods for a servlet?
+
+public void init(ServletConfig config)  :  It is invoked only once when first request comes for the servlet. It is used to initialize the servlet.
+
+public void service(ServletRequest request,ServletResponse)throws ServletException,IOException : It is invoked at each request.The service() method is used to service the request.
+
+public void destroy() : It is invoked only once when servlet is unloaded.
+__________________________________________________________________________________________________________________________________________________________________________
+
+ Who is responsible to create the object of servlet?
+
+The web container or servlet container.
+__________________________________________________________________________________________________________________________________________________________________________
+
+ What is difference between Get and Post method?
+
+1) Limited amount of data can be sent because data is sent in header.     1> Large amount of data can be sent because data is sent in body.
+
+2) Not Secured because data is exposed in URL bar.                        2> Secured because data is not exposed in URL bar.
+
+3> Can be bookmarked                                                      3> Cannot be bookmarked.
+
+4>  Idempotent                                                            4> Non-idempotent
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is ConcurrentHashMap used for?
+
+ConcurrentHashMap is the Map implementation that allows us to modify the Map while iteration. 
+The ConcurrentHashMap operations are thread-safe. ConcurrentHashMap doesn't allow null for keys and values.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What are new features introduced with Java 8 ?
+
+Ans. Lambda Expressions , Interface Default and Static Methods , Method Reference , Parameters Name , Optional , Streams, Concurrency.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is flow of servlets ? 
+
+-> First the server checks if the servlet is requested for the first time.
+
+-> if 	Yes, web container does the following task:
+
+-> Loads the servlet class
+../
+-> Instantiates the servlet class
+
+-> Calls the init method passing the servlet config object.
+
+-> else calls the service method passing request and response object.
+
+-> The web container calls the destroy method when it needs to remove the servlet such as at time of stopping server or undeploying the project.
+__________________________________________________________________________________________________________________________________________________________________________
+
+Difference between ConcurrentHashMap, Hashtable and Synchronized Map in Java
+
+-> The difference between Hashtable and ConcurrentHashMap, both can be used in the multithreaded environment,
+   but once the size of Hashtable becomes considerable large performance degrade because for iteration it has to be locked for a longer duration.
+
+-> Since ConcurrentHashMap introduced the concept of segmentation, how large it becomes only certain part of it get locked to provide thread safety 
+   so many other readers can still access map without waiting for iteration to complete. 
+
+-> In Summary, ConcurrentHashMap only locked certain portion of Map while Hashtable locks full map while doing iteration.
+__________________________________________________________________________________________________________________________________________________________________________
+
+explain about 4 types of Functional Interfaces in java 8?
+
+->  In Java 8, a functional interface is an interface that has only one abstract method. This concept is important in the context of lambda expressions, which are a new                    language feature introduced in Java 8 for writing concise and expressive code.
+
+Here are the four types of functional interfaces in Java 8:
+
+Consumer: The Consumer interface represents an operation that takes a single argument and returns no result. Its functional method is called accept().
+
+Supplier: The Supplier interface represents an operation that takes no arguments and returns a value. Its functional method is called get().
+
+Predicate: The Predicate interface represents a boolean-valued function of one argument. Its functional method is called test().
+
+Function: The Function interface represents a function that takes one argument and returns a value. Its functional method is called apply().
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is Stream?
+
+-> Stream represents a sequence of objects from a source, which supports aggregate operations. 
+__________________________________________________________________________________________________________________________________________________________________________
+
+What are JDBC steps ? 
+
+-> import ---> java.sql
+
+-> Register and load driver.
+
+-> Create connection 
+
+-> Create Statement 
+
+-> Execute Query 
+
+-> process the results 
+
+-> close.
+__________________________________________________________________________________________________________________________________________________________________________
+
+How Java provide high Performance ?
+
+Ans. Java uses Just-In-Time compiler to enable high performance. 
+
+Just-In-Time compiler is a program that turns Java bytecode into instructions that can be sent directly to the processor.
+__________________________________________________________________________________________________________________________________________________________________________
+
+How to implement an immutable class ?
+
+Ans. We can make a class immutable by
+
+1. Making all methods and variables as private.
+
+2. Setting variables within constructor.
+
+Public Class ImmutableClass{
+     private int member;
+     ImmutableClass(int var){
+         member=var;
+     } 
+} 
+
+and then we can initialize the object of the class as
+
+ImmutableClass immutableObject = new ImmutableClass(5);
+
+Now all members being private , you can't change the state of the object. 
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is meant by constructor chaining?
+
+-> Constructor chaining is the process of calling a sequence of constructors. 
+
+-> We can do it in two ways: by using this() keyword for chaining constructors in the same class.
+
+-> by using super() keyword for chaining constructors from the parent class.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is Enumeration ? 
+
+-> An enumeration (enum for short) in Java is a special data type which contains a set of predefined constants.
+__________________________________________________________________________________________________________________________________________________________________________
+
+what is PreparedStatement and Statement in jdbc?
+
+->  In JDBC, both Statement and PreparedStatement are interfaces used to execute SQL queries against a database. 
+    However, they have some differences in their functionality and usage.
+
+-> Statement is a basic interface in JDBC that is used to execute 
+
+-> Statement is an interface in JDBC that is used to execute a static SQL statement and return the results. 
+   Static SQL statements are those whose values are hard-coded at the time of execution.
+
+-> PreparedStatement is used for dynamic SQL statements with parameters, while Statement is used for static SQL statements.
+
+-> PreparedStatement provides protection against SQL injection attacks, while Statement does not.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between Iterator and ListIterator?
+
+-> Iterator traverses the elements in the forward direction only whereas ListIterator traverses the elements into forward and backward direction.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between List and Set?
+
+-> The List and Set both extend the collection interface. However, there are some differences between the both which are listed below.
+
+-> The List can contain duplicate elements whereas Set includes unique items.
+
+-> The List is an ordered collection which maintains the insertion order whereas Set is an unordered collection which does not preserve the insertion order.
+
+-> The List interface contains a single legacy class which is Vector class whereas Set interface does not have any legacy class.
+
+-> The List interface can allow n number of null values whereas Set interface only allows a single null value.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between HashSet and TreeSet?
+
+-> The HashSet and TreeSet, both classes, implement Set interface. The differences between the both are listed below.
+
+-> HashSet maintains no order whereas TreeSet maintains ascending order.
+
+-> HashSet impended by hash table whereas TreeSet implemented by a Tree structure.
+
+-> HashSet performs faster than TreeSet.
+
+-> HashSet is backed by HashMap whereas TreeSet is backed by TreeMap.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between Set and Map?
+
+-> The differences between the Set and Map are given below.
+
+-> Set contains values only whereas Map contains key and values both.
+
+-> Set contains unique values whereas Map can contain unique Keys with duplicate values.
+
+-> Set holds a single number of null value whereas Map can include a single null key with n number of null values.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between HashSet and HashMap?
+
+-> The differences between the HashSet and HashMap are listed below.
+
+-> HashSet contains only values whereas HashMap includes the entry (key, value). HashSet can be iterated, but HashMap needs to convert into Set to be iterated.
+
+-> HashSet implements Set interface whereas HashMap implements the Map interface
+
+-> HashSet cannot have any duplicate value whereas HashMap can contain duplicate values with unique keys.
+
+-> HashSet contains the only single number of null value whereas HashMap can hold a single null key with n number of null values.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between HashMap and TreeMap?
+
+-> The differences between the HashMap and TreeMap are given below.
+
+-> HashMap maintains no order, but TreeMap maintains ascending order.
+
+-> HashMap is implemented by hash table whereas TreeMap is implemented by a Tree structure.
+
+-> HashMap can be sorted by Key or value whereas TreeMap can be sorted by Key.
+
+-> HashMap may contain a null key with multiple null values whereas TreeMap cannot hold a null key but can have multiple null values.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between Collection and Collections?
+
+-> The differences between the Collection and Collections are given below.
+
+-> The Collection is an interface whereas Collections is a class.
+
+-> The Collection interface provides the standard functionality of data structure to List, Set, and Queue.
+
+->  However, Collections class is to sort and synchronize the collection elements.
+
+-> The Collection interface provides the methods that can be used for data structure
+   whereas Collections class provides the static methods which can be used for various operation on a collection.
+__________________________________________________________________________________________________________________________________________________________________________
+
+ What is the difference between Comparable and Comparator?
+
+-> Comparable provides only one sort of sequence.	                        -> The Comparator provides multiple sorts of sequences.
+
+-> It provides one method named compareTo().	                               -> It provides one method named compare().
+
+-> If we implement the Comparable interface, The actual class is modified.   -> The actual class is not changed.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is Servlet Context and Servlet Config ?
+
+A)  -> ServletConfig is used for sharing init parameters specific to a servlet.
+
+    -> Where as ServletContext is for sharing init parameters within any servlet with in a web application.
+__________________________________________________________________________________________________________________________________________________________________________
+
+Data Types and size of DT ?
+
+A) 
+
+-> Byte  - 1(byte)
+
+-> Short - 2 bytes
+
+-> Int  -  4 bytes 
+
+-> Long  -  8 bytes
+
+-> Float  - 4 bytes 
+
+-> Double  - 8 bytes
+
+-> Char  -  2 bytes
+
+-> Boolean  - 1 bit
+__________________________________________________________________________________________________________________________________________________________________________
+
+Threads in java ?
+
+-> In java, a thread is a unit of execution that allows a programme to perform multiple tasks concurrently.
+
+-> Java provides a buiult-in support for multi-threading the the "java.lang.Thread" class.
+
+-> A thread is created by instantiating an object of the "Thread" class and calling its method start().
+
+-> when the start() method is called, a new thread is created and its run() method is invoked in separated flow of execution.
+
+-> Multithreading is commonly used in Java for tasks that require parallel processing,
+   such as running multiple background tasks, performing I/O operations, and handling user interface events. 
+_________________________________________________________________________________________________________________________________________________________________________
+
+what is aggregation and composition in java ?
+
+A) 
+-> Aggregation and composition are two important concepts in object-oriented programming (OOP) that describe the relationship between two classes.
+
+Aggregation:
+ 
+-> Aggregation is a relationship between two classes where one class contains a reference to another class as a member variable.
+
+-> An example of aggregation is a university containing multiple departments, where each department can exist independently of the university.
+
+Composition:
+
+-> Composition is a relationship between two classes where one class contains another class as a member variable, 
+   and the contained class cannot exist independently of the containing class.
+
+-> When the containing class is destroyed, the contained class is also destroyed.
+   An example of composition is a car containing an engine, where the engine cannot exist without the car.
+__________________________________________________________________________________________________________________________________________________________________________ 
+
+What is the difference between == and .equals() for comparing objects in Java?
+
+-> The == operator compares object references, checking if they refer to the same memory location.
+
+-> The .equals() method compares the actual content of the objects (the values they hold) based on the implementation of the method in the object's class.
+
+-> In other words, == checks for reference equality, while .equals() checks for value equality.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between final, finally, and finalize in Java?
+
+-> final is a keyword used to make a variable, method, or class constant and unchangeable.
+
+-> finally is a block that follows a try-catch block and is used to ensure that a section of code is always executed, regardless of whether an exception occurs or not.
+
+-> finalize is a method called by the garbage collector before reclaiming the memory occupied by an object. However, it's generally recommended to use the try-with-
+   resources statement or explicitly close resources instead of relying on finalize
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between String, StringBuilder, and StringBuffer in Java?
+
+-> String is immutable, meaning its value cannot be changed once created. Each time you modify a String, a new object is created in memory.
+
+-> StringBuilder and StringBuffer are mutable classes used to manipulate strings. They provide methods to append, delete, or modify strings. StringBuilder is not 
+   thread-safe, while StringBuffer is thread-safe.
+
+-> If you need a mutable string and don't require thread safety, use StringBuilder. If you need thread safety, use StringBuffer.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What are checked and unchecked exceptions in Java?
+
+-> Checked exceptions are exceptions that need to be declared in the method signature using the throws keyword or handled using a try-catch block. 
+   Examples include    IOException, SQLException,ClassNotFoundException, SocketException, FileNotFoundException etc.
+
+-> Unchecked exceptions, also known as runtime exceptions, do not need to be declared or caught explicitly. They are subclasses of RuntimeException or Error. 
+   Examples   include NullPointerException, ArrayIndexOutOfBoundsException, etc.
+_________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between ArrayList and LinkedList?
+
+-> ArrayList is implemented as a resizable array and provides fast random access but slower insertion and deletion of elements in the middle of the list.
+
+-> LinkedList is implemented as a doubly-linked list and provides fast insertion and deletion of elements but slower random access.
+
+-> Use ArrayList when you need fast access to elements and LinkedList when you frequently need to add or remove elements from the list.
+__________________________________________________________________________________________________________________________________________________________________________
+
+What is the difference between throw and throws in Java?
+
+-> The throw keyword is used to explicitly throw an exception in a method or block of code.
+
+-> The throws keyword is used in the method signature to indicate that the method may throw one or more exceptions and that the caller of the method needs to handle or       propagate those exceptions.
+__________________________________________________________________________________________________________________________________________________________________________
+
+Explain the transient keyword in Java.
+
+The transient keyword is used to indicate that a variable should not be serialized when an object is converted to a byte stream (e.g., for storage or network transmission) using Java's Serialization API.
+_________________________________________________________________________________________________________________________________________________________________________
+
+What is the purpose of the static keyword in Java?
+
+The static keyword is used to define a class-level member that belongs to the class itself rather than to an instance of the class.
+__________________________________________________________________________________________________________________________________________________________________________
+
+what are intermediate and terminal operations in java 8?
+
+-> In Java 8 and later versions, the Stream API introduced two types of operations: 
+   intermediate operations and terminal operations. These operations are used to perform various transformations and computations on a stream of elements.
+
+-> Intermediate Operations:
+
+Intermediate operations are operations that are applied to a stream and produce a new stream as a result. They are lazy, meaning they do not execute immediately. 
+Instead, they are stored and executed only when a terminal operation is called.
+
+Some common intermediate operations in Java 8 include:
+
+filter(Predicate<T> predicate): Returns a stream consisting of the elements that match the given predicate.
+map(Function<T, R> mapper): Applies the given function to each element of the stream and returns a stream of the results.
+distinct(): Returns a stream with distinct elements (removes duplicates).
+sorted(): Returns a stream with sorted elements based on their natural order.
+limit(long maxSize): Returns a stream truncated to the specified size.
+Intermediate operations allow you to chain multiple operations together to form a pipeline.
+
+Terminal Operations:
+
+Terminal operations are operations that are applied to a stream and produce a non-stream result, such as a value, a collection, or a side effect. When a terminal operation is called, all the previous intermediate operations are executed.
+
+Some common terminal operations in Java 8 include:
+
+forEach(Consumer<T> action): Performs an action for each element in the stream.
+collect(Collector<T, A, R> collector): Collects the elements of the stream into a collection or a single value.
+count(): Returns the count of elements in the stream.
+anyMatch(Predicate<T> predicate): Returns true if any elements of the stream match the given predicate.
+allMatch(Predicate<T> predicate): Returns true if all elements of the stream match the given predicate.
+findFirst(): Returns the first element of the stream.
+__________________________________________________________________________________________________________________________________________________________________________
+
+what are parallel streams in java8?
+
+import java.util.Arrays;
+import java.util.List;
+
+public class ParallelStreamExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+        // Sequential stream
+        int sumSequential = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .mapToInt(n -> n)
+                .sum();
+
+        // Parallel stream
+        int sumParallel = numbers.parallelStream()
+                .filter(n -> n % 2 == 0)
+                .mapToInt(n -> n)
+                .sum();
+
+        System.out.println("Sum (Sequential): " + sumSequential);
+        System.out.println("Sum (Parallel): " + sumParallel);
+    }
+}
+
+
+-> In the example above, we have a list of numbers, and we want to find the sum of the even numbers. The first part demonstrates the sequential stream, 
+   where operations are executed sequentially on a single thread.
+ 
+-> The second part shows the parallel stream, where operations are divided among multiple threads for concurrent execution.
+
+-> By using parallel streams, Java automatically distributes the workload across available threads and combines the results at the end. 
+   This can significantly improve the   performance of computationally intensive or data-intensive operations when working with large datasets
+
+-> However, it's important to note that not all operations are suitable for parallel execution. Some operations, like forEach, rely on the order of elements and may  
+   produce incorrect results when executed in parallel.
+__________________________________________________________________________________________________________________________________________________________________________
+
+
+What is an interface in Java?
+
+Ans: An interface in Java is a mechanism that is used to achieve complete abstraction. 
+
+->  It is basically a kind of class that contains only constants and abstract methods.
+__________________________________________________________________________________________________________________________________________________________________________
+
+Can we define private and protected modifiers for data members (fields) in interfaces?
+
+Ans: No, we cannot define private and protected modifiers for variables in interface because the fields (data members) declared in an interface are by default public,     
+    static, and final.
+__________________________________________________________________________________________________________________________________________________________________________
+
+How HashMap internally works?
+
+-> A hashmap uses a hashtable, however it internally implemented by 2 data structutres namely arrays and linked list. 
+
+-> When ever you declare a hashmap, internally it will create an array of buckets. The buckets are reffered to as nodes or you can say as list.
+__________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
