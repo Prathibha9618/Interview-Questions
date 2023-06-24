@@ -235,6 +235,7 @@ Feautures :
 -> Optional integration with spring mvc
 __________________________________________________________________________________________________________________________________________________________________________
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
 changes done by pratibha
 
@@ -252,7 +253,10 @@ changes done by pratibha
 
 
 
+=======
+>>>>>>> Stashed changes
 
+changes done by gowthAM...
 
 
 
