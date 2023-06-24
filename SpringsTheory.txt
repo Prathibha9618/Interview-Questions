@@ -234,19 +234,6 @@ Feautures :
 -> it provides integration of survlet with api
 -> Optional integration with spring mvc
 __________________________________________________________________________________________________________________________________________________________________________
-<<<<<<< Updated upstream
-
-
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> Stashed changes
 
 changes done by Gunesh
+changes 2
